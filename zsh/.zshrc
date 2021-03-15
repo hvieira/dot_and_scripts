@@ -8,7 +8,7 @@ export ZSH="${HOME}/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="jreese"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -73,11 +73,15 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+
 [ -d "${HOME}/bin" ] && export PATH="${HOME}/bin:${PATH}"
 
 [ -f ${HOME}/.zsh_sec_vars ] && source ${HOME}/.zsh_sec_vars
 
 [ -f ${HOME}/.zsh_aliases ] && source ${HOME}/.zsh_aliases
+
+[ -f ${HOME}/.zsh_gpg ] && source ${HOME}/.zsh_gpg
+
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -89,3 +93,6 @@ source $ZSH/oh-my-zsh.sh
 #   export EDITOR='mvim'
 # fi
 
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
