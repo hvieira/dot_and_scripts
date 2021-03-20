@@ -76,6 +76,8 @@ source $ZSH/oh-my-zsh.sh
 
 [ -d "${HOME}/bin" ] && export PATH="${HOME}/bin:${PATH}"
 
+[ -f ${HOME}/.zsh_asdf ] && source ${HOME}/.zsh_asdf
+
 [ -f ${HOME}/.zsh_sec_vars ] && source ${HOME}/.zsh_sec_vars
 
 [ -f ${HOME}/.zsh_aliases ] && source ${HOME}/.zsh_aliases
