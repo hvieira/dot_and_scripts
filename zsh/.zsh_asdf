@@ -1,1 +1,13 @@
 source $HOME/.asdf/asdf.sh
+
+# needed for java home from asdf
+function absolute_dir_path {
+    local absolute_path
+    absolute_path="$( cd -P "$( dirname "$1" )" && pwd )"
+    echo "$absolute_path"
+}
+
+alias realpath=absolute_dir_path
+
+[ -f ~/.asdf/plugins/java/set-java-home.zsh ] && source ~/.asdf/plugins/java/set-java-home.zsh
+

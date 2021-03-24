@@ -84,9 +84,13 @@ source $ZSH/oh-my-zsh.sh
 
 [ -f ${HOME}/.zsh_gpg ] && source ${HOME}/.zsh_gpg
 
+[ -f ${HOME}/.zsh_tooling ] && source ${HOME}/.zsh_tooling
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
+
+
+
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -95,6 +99,6 @@ source $ZSH/oh-my-zsh.sh
 #   export EDITOR='mvim'
 # fi
 
-
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
