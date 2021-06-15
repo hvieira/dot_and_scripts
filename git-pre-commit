@@ -1,0 +1,9 @@
+#!/bin/sh
+
+CHANGED_FILES=$(git --no-pager diff --cached --name-only --diff-filter=ACMR | grep '^.*\.*$')
+
+for f in ${CHANGED_TF_FILES}
+do
+	# TODO run formatting tool or whatever else needed
+	git add "${f}"
+done
