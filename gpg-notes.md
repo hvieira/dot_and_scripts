@@ -10,7 +10,19 @@ Check it can read the yubikey
 
 `gpg --card-status`
 
-If it cannot read the yubikey, then it might require scdaemon config as per https://support.yubico.com/hc/en-us/articles/360013714479-Troubleshooting-Issues-with-GPG 
+If it cannot read the yubikey, then it might require scdaemon config as per https://support.yubico.com/hc/en-us/articles/360013714479-Troubleshooting-Issues-with-GPG
+
+Kernel versions and Linux distributions might differ and cause different issues. 
+For example, in a few kernel versions, a regression caused a race condition with PCSCD and the card could not be read - someone had this sort of issue as well: https://gist.github.com/Snuggle/67a68b8b5939f62e185f73c014b4ab81
+On fedora 41 kernel `6.12.11-200.fc41.x86_64` this has been relatively stable:
+```
+card-timeout 1
+
+# Always try to use yubikey as the first reader
+# even when other smart card readers are connected
+# Name of the reader can be found using the pcsc_scan command
+reader-port Yubico YubiKey
+```
 
 ## Setting up the yubikey and keys
 
@@ -84,3 +96,4 @@ the public key is present. If not, then it needs to be imported by `gpg --card-e
 
 ### Github commit signing
 https://docs.github.com/en/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key
+
